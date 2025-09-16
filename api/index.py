@@ -5,7 +5,7 @@ app = Flask(__name__)
 # Home 페이지
 @app.route('/')
 def home():
-    return render_template('../templates/home.html', title='Home')
+    return render_template('home.html', title='Home')
 
 # 구구단 페이지
 @app.route('/multiplication', methods=['GET', 'POST'])
@@ -14,10 +14,10 @@ def multiplication():
         try:
             number = int(request.form['number'])
             gugu_list = [f"{number} x {i} = {number * i}" for i in range(1, 10)]
-            return render_template('../templates/multiplication.html', title='구구단', gugu_list=gugu_list, number=number)
+            return render_template('multiplication.html', title='구구단', gugu_list=gugu_list, number=number)
         except ValueError:
-            return render_template('../templates/multiplication.html', title='구구단', error="숫자를 입력해주세요.")
-    return render_template('../templates/multiplication.html', title='구구단')
+            return render_template('multiplication.html', title='구구단', error="숫자를 입력해주세요.")
+    return render_template('multiplication.html', title='구구단')
 
 # 계산기 페이지
 @app.route('/calculator', methods=['GET', 'POST'])
@@ -43,5 +43,5 @@ def calculator():
         except ValueError:
             result = "유효한 숫자를 입력해주세요."
     
-    return render_template('../templates/calculator.html', title='계산기', result=result)
+    return render_template('calculator.html', title='계산기', result=result)
 
