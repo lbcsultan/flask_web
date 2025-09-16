@@ -45,5 +45,3 @@ def calculator():
     
     return render_template('calculator.html', title='계산기', result=result)
 
-if __name__ == '__main__':
-    app.run(debug=True)
